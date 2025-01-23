@@ -7,7 +7,7 @@ to grant permissions to the app.
 
 From a console shell:
 ```
-    $ npm install
+$ npm install
 ```
     $ npm start
 
