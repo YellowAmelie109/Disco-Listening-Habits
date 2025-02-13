@@ -1,1 +1,1 @@
-Good Luck lol
+/Authorisatio/ is for generating the Auth Key 
