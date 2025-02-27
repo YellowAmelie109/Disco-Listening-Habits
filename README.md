@@ -1,1 +1,1 @@
-/Authorisatio/ is for generating the Auth Key 
+/Authorisation/ is for generating the Auth Key 
