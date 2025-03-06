@@ -1,0 +1,101 @@
+{
+    "items":
+    [
+        {
+            "album":
+            {
+                "album_type":"[album/single]",
+                "artists":
+                [
+                    {
+                        "external_urls":
+                        {
+                            "spotify":"[spotify link]"
+                        },
+                        "href":"[spotify api link]",
+                        "id":"[string of characters]",
+                        "name":"[name]",
+                        "type":"[artist/band? etc]",
+                        "uri":"spotify:artist:[same string of chars as earlyier"
+                    },
+                    {
+                        "potencialy repeats of":"the previous section with different data"
+                    }
+                ],    
+                "available_markets":["list of contry codes"],
+                "external_urls":
+                {
+                    "spotify":"[spotify link]"
+                },
+                "href":"",
+                "id":"[string of characters]",
+                "images":
+                [
+                    {
+                        "height":"[number as an integer not string]",
+                        "url":"i.scdn.co [image link]",
+                        "width":"[number as an integer not string]"
+                    },
+                    {
+                        "potencialy repeats of":"the previous section with different data"
+                    }
+                ],
+                "is_playable":"[boolean value]",
+                "name":"[song name]",
+                "release_date":"[date YYYY-MM-DD]",
+                "release_date_precision":"[period of time (day)]",
+                "total_tracks":"[number, 1 for a single]",
+                "type":"[(album)?]",
+                "uri":"spotify:artist:[same string of chars as ealier]"
+            },
+            "artists":
+            [
+                {
+                    "external_urls":
+                    {
+                        "spotify":"[spotify link]"
+                    },
+                    "href":"[spotify api link]",
+                    "id":"[string of characters]",
+                    "name":"[artist name]",
+                    "type":"artist",
+                    "uri":"spotify:artist:[same string of chars as ealier]"
+                }
+            ],
+            "available_markets":
+            [
+                "list of contry codes"
+            ],
+            "disc_number":"[integer]",
+            "duration_ms":"[integer in ms]",
+            "explicit":"[boolean]",
+            "external_ids":
+            {
+                "isrc":"[list of chars (GBBKS1200164)]"
+            },
+            "external_urls":
+            {
+                "spotify":"[spotify link]"
+            },
+            "href":"[spotify api link]",
+            "id":"[string of characters]",
+            "is_local":"[boolean]",
+            "is_playable":"[boolean value]",
+            "name":"[song name]",
+            "popularity":"[integer (82)]",
+            "preview_url":"[link or null]",
+            "track_number":"[integer]",
+            "type":"[(track)]",
+            "uri":"spotify:artist:[same string of chars as ealier]"
+        },
+        {
+            "potencial repeat of":"previous items"
+        }
+    ],
+    "total":"[integer, number of songs]",
+    "limit":"50 [could be smaller]",
+    "offset":"[number (0)]",
+    "href":"[spotify api link]",
+    "next":null,
+    "previous":null
+}
