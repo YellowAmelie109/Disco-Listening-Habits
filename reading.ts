@@ -4,7 +4,7 @@ import * as fs from 'fs';
 function handleResponse(){
     let songs: string[]
 
-    const jsonData = fs.readFileSync('response.json', 'utf8');
+    const jsonData = fs.readFileSync('JSON/response.json', 'utf8');
     const jsonObject = JSON.parse(jsonData);
 
     for (const key in jsonObject) {
