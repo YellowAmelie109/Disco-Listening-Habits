@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/node": "^22.13.9",
+    "fs": "^0.0.1-security",
+    "tsc": "^2.0.4",
+    "typescript": "^5.8.2"
+  }
+}
