@@ -44,9 +44,9 @@ function handleResponse(jsonObject) {
         var song = jsonObject["items"][i];
         songs.push(song["name"]);
         times_ms.push(song["duration_ms"]);
-        for (var key in song["artists"]) {
-            if (Object.prototype.hasOwnProperty.call(song["artists"], key)) {
-                var element = song["artists"][key];
+        for (var key_1 in song["artists"]) {
+            if (Object.prototype.hasOwnProperty.call(song["artists"], key_1)) {
+                var element = song["artists"][key_1];
                 artists.push(element["name"]);
             }
             ;
@@ -59,9 +59,9 @@ function handleResponse(jsonObject) {
     ;
     explicit_rate = explicit_rate / number_of_songs;
     var mean_time_ms = 0;
-    for (var key in times_ms) {
-        if (Object.prototype.hasOwnProperty.call(times_ms, key)) {
-            var element = times_ms[key];
+    for (var key_2 in times_ms) {
+        if (Object.prototype.hasOwnProperty.call(times_ms, key_2)) {
+            var element = times_ms[key_2];
             mean_time_ms = mean_time_ms + element;
         }
         ;
@@ -73,23 +73,35 @@ function handleResponse(jsonObject) {
 }
 function getJsonData(authKey) {
     return __awaiter(this, void 0, void 0, function () {
-        var response;
+        var response, jsonData;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch("https://api.spotify.com/v1/me", {
+                case 0: return [4 /*yield*/, fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
                         method: 'GET',
-                        headers: { 'Authorization': 'Bearer ' + authKey.access_token },
+                        headers: { 'Authorization': 'Bearer ' + authKey },
                     })];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
-                case 2: return [2 /*return*/, _a.sent()];
+                case 2:
+                    jsonData = _a.sent();
+                    console.log(jsonData);
+                    return [2 /*return*/, jsonData];
             }
         });
     });
 }
 ;
 function main(authKey) {
-    return handleResponse(getJsonData(authKey));
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, handleResponse(getJsonData(authKey))];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    });
 }
 ;
+var key = "BQDGUIRmELnT8dIj6mpwbJKytF99ewzFW6-JzrLdhUOt71mHFBsnk27ZPXCnSHHhV2c2Ko0mggQrSgCaxSQnvcDhdnjcpMfQ2jIC4nEmy32Ppo4hHAoKAFisGRCBbscN1YJlD1GG7q8V780-WAZhvVkMRQrat8aNhxW2wBsBxxJ7tEkOjRNIsRgabNhUVcFgE4bD4m_aF-Cwodq8HE0e_-Nk-plgc3mfeladpUGuJiLXgLVzfiNWEXrkm6c";
+console.log(main(key));

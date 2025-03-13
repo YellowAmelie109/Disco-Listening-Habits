@@ -35,14 +35,20 @@ function handleResponse(jsonObject){//looks at the json data and returns an obje
     return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explicit_rate":explicit_rate}
 }
 
-async function getJsonData(authKey) {//from app.js
-    const response = await fetch("https://api.spotify.com/v1/me", {
+async function getJsonData(authKey) {//from app.js gets the json from the spotify api
+    const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
         method: 'GET',
-        headers: { 'Authorization': 'Bearer ' + authKey.access_token },
+        headers: { 'Authorization': 'Bearer ' + authKey},
     });
 
-    return await response.json();
+    let jsonData = await response.json()
+    console.log(jsonData)
+    return jsonData
 };
-function main(authKey){
-    return handleResponse(getJsonData(authKey));
+
+async function main(authKey){
+    return await handleResponse(getJsonData(authKey));
 };
+
+let key = "BQDGUIRmELnT8dIj6mpwbJKytF99ewzFW6-JzrLdhUOt71mHFBsnk27ZPXCnSHHhV2c2Ko0mggQrSgCaxSQnvcDhdnjcpMfQ2jIC4nEmy32Ppo4hHAoKAFisGRCBbscN1YJlD1GG7q8V780-WAZhvVkMRQrat8aNhxW2wBsBxxJ7tEkOjRNIsRgabNhUVcFgE4bD4m_aF-Cwodq8HE0e_-Nk-plgc3mfeladpUGuJiLXgLVzfiNWEXrkm6c"
+console.log(main(key))
