@@ -1,9 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var fs = require("fs");
-function handleResponse() {
-    var jsonData = fs.readFileSync('JSONS/response.json', 'utf8');
-    var jsonObject = JSON.parse(jsonData);
+function handleResponse(jsonObject) {
     var songs = [];
     var times_ms = [];
     var number_of_songs = jsonObject["total"];
@@ -40,4 +35,3 @@ function handleResponse() {
     var mean_time_s = mean_time_ms / 1000;
     return { "songs": songs, "mean_time_s": mean_time_s, "artists": artists, "explisit_rate": explisit_rate };
 }
-//console.log(handleResponse());

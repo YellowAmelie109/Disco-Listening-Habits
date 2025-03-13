@@ -1,9 +1,4 @@
-import * as fs from 'fs';
-
-function handleResponse(){
-    const jsonData = fs.readFileSync('JSONS/response.json', 'utf8');
-    const jsonObject = JSON.parse(jsonData);
-    
+function handleResponse(jsonObject){
     let songs: string[] = []
     let times_ms: number[] = []
     let number_of_songs: number = jsonObject["total"]
@@ -39,5 +34,3 @@ function handleResponse(){
 
     return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explisit_rate":explisit_rate}
 }
-
-//console.log(handleResponse());
