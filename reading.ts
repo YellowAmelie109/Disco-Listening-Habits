@@ -32,5 +32,20 @@ function handleResponse(jsonObject){
     mean_time_ms = mean_time_ms / number_of_songs;
     let mean_time_s = mean_time_ms/1000
 
-    return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explisit_rate":explisit_rate}
+    return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explicit_rate":explisit_rate}
+}
+
+function getJson(authKey){
+    async function getUserData(authKey) {
+        const response = await fetch("https://api.spotify.com/v1/me", {
+          method: 'GET',
+          headers: { 'Authorization': 'Bearer ' + authKey.access_token },
+        });
+
+        return await response.json();
+    };
+    
+    let jsonObject = getUserData(authKey);
+
+    return jsonObject
 }
