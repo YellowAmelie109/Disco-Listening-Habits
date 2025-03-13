@@ -1,9 +1,9 @@
-function handleResponse(jsonObject){
+function handleResponse(jsonObject){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
     let number_of_songs: number = jsonObject["total"]
     let artists: string[] = []
-    let explisit_rate: number = 0
+    let explicit_rate: number = 0
 
     for (let i = 0; i < number_of_songs; i++){//get the data for each line song that is listed as well as 
         const song = jsonObject["items"][i];
@@ -16,11 +16,11 @@ function handleResponse(jsonObject){
             };
         };
         if (song["explicit"]){
-            explisit_rate = explisit_rate + 1
+            explicit_rate = explicit_rate + 1
         }
     };
     
-    explisit_rate = explisit_rate / number_of_songs
+    explicit_rate = explicit_rate / number_of_songs
 
     let mean_time_ms: number = 0
     for (const key in times_ms) {
@@ -32,20 +32,17 @@ function handleResponse(jsonObject){
     mean_time_ms = mean_time_ms / number_of_songs;
     let mean_time_s = mean_time_ms/1000
 
-    return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explicit_rate":explisit_rate}
+    return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explicit_rate":explicit_rate}
 }
 
-function getJson(authKey){
-    async function getUserData(authKey) {
-        const response = await fetch("https://api.spotify.com/v1/me", {
-          method: 'GET',
-          headers: { 'Authorization': 'Bearer ' + authKey.access_token },
-        });
+async function getJsonData(authKey) {//from app.js
+    const response = await fetch("https://api.spotify.com/v1/me", {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + authKey.access_token },
+    });
 
-        return await response.json();
-    };
-    
-    let jsonObject = getUserData(authKey);
-
-    return jsonObject
-}
+    return await response.json();
+};
+function main(authKey){
+    return handleResponse(getJsonData(authKey));
+};
