@@ -153,4 +153,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>EMC2</title>
+export const Head: HeadFC = () => <title>E=MC^2</title>
