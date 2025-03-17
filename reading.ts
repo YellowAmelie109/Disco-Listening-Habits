@@ -48,7 +48,7 @@ async function getJsonData(authKey) {//from app.js gets the json from the spotif
 
 async function main(authKey: string){
     let songInfo = await handleResponse(await getJsonData(authKey));
-    console.log(songInfo)
+    //console.log(songInfo)
     return songInfo
 };
 
