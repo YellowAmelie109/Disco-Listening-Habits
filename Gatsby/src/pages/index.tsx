@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import reading from "../../../reading"
+import reading from "./reading.ts"
 
 const pageStyles = {
   color: "#232129",
@@ -116,6 +116,7 @@ const IndexPage: React.FC<PageProps> = () => {
         Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
         update in real-time.
       </p>
+      <Console log= reading />
       <ul style={doclistStyles}>
         {docLinks.map(doc => (
           <li key={doc.url} style={docLinkStyle}>
