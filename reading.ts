@@ -1,26 +1,26 @@
-function handleResponse(jsonObject){//looks at the json data and returns an object with the interresting infomation
+async function handleResponse(jsonObject){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
-    let number_of_songs: number = jsonObject["total"]
+    let number_of_songs: number = await jsonObject["total"]
     let artists: string[] = []
     let explicit_rate: number = 0
 
     for (let i = 0; i < number_of_songs; i++){//get the data for each line song that is listed as well as 
-        const song = jsonObject["items"][i];
-        songs.push(song["name"]);
-        times_ms.push(song["duration_ms"]);
-        for (const key in song["artists"]) {
-            if (Object.prototype.hasOwnProperty.call(song["artists"], key)) {
-                const element = song["artists"][key];
-                artists.push(element["name"]);
+        const song = await jsonObject["items"][i];
+        songs.push(await song["name"]);
+        times_ms.push(await song["duration_ms"]);
+        for (const key in await song["artists"]) {
+            if (Object.prototype.hasOwnProperty.call(await song["artists"], key)) {
+                const element = await song["artists"][key];
+                artists.push(await element["name"]);
             };
         };
-        if (song["explicit"]){
+        if (await song["explicit"]){
             explicit_rate = explicit_rate + 1
         }
     };
     
-    explicit_rate = explicit_rate / number_of_songs
+    explicit_rate = explicit_rate / await number_of_songs
 
     let mean_time_ms: number = 0
     for (const key in times_ms) {
@@ -42,13 +42,15 @@ async function getJsonData(authKey) {//from app.js gets the json from the spotif
     });
 
     let jsonData = await response.json()
-    console.log(jsonData)
-    return jsonData
+
+    return await jsonData
 };
 
-async function main(authKey){
-    return await handleResponse(getJsonData(authKey));
+async function main(authKey: string){
+    let songInfo = await handleResponse(await getJsonData(authKey));
+    console.log(songInfo)
+    return songInfo
 };
 
-let key = "BQDGUIRmELnT8dIj6mpwbJKytF99ewzFW6-JzrLdhUOt71mHFBsnk27ZPXCnSHHhV2c2Ko0mggQrSgCaxSQnvcDhdnjcpMfQ2jIC4nEmy32Ppo4hHAoKAFisGRCBbscN1YJlD1GG7q8V780-WAZhvVkMRQrat8aNhxW2wBsBxxJ7tEkOjRNIsRgabNhUVcFgE4bD4m_aF-Cwodq8HE0e_-Nk-plgc3mfeladpUGuJiLXgLVzfiNWEXrkm6c"
-console.log(main(key))
+let key = "BQBKrzwshGu4eThAQZpK1Iv81T7ZnXRB9ce0WP3XHXkunw8vWKp4ipxLJ2YfKX9Xuj0is_8dduX2SqnsK2EGHHZG5DxPHQjWISwSnsOYbYml0tm_Wu5M0M4ZMum-GWEvjykX6D581i0wt0638QExhMV6tn5ftEjSG8JrlFUZIhQmeCq-jNY2TonHgmA0j1TX6h4Ig-ayMH41Sa_GDd9Wp-S60EC2Sl8EUQeiAuIIsGwXRddCKOLiXql-5UU"
+main(key)

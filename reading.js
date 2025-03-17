@@ -35,41 +35,96 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function handleResponse(jsonObject) {
-    var songs = [];
-    var times_ms = [];
-    var number_of_songs = jsonObject["total"];
-    var artists = [];
-    var explicit_rate = 0;
-    for (var i = 0; i < number_of_songs; i++) { //get the data for each line song that is listed as well as 
-        var song = jsonObject["items"][i];
-        songs.push(song["name"]);
-        times_ms.push(song["duration_ms"]);
-        for (var key_1 in song["artists"]) {
-            if (Object.prototype.hasOwnProperty.call(song["artists"], key_1)) {
-                var element = song["artists"][key_1];
-                artists.push(element["name"]);
+    return __awaiter(this, void 0, void 0, function () {
+        var songs, times_ms, number_of_songs, artists, explicit_rate, i, song, _a, _b, _c, _d, _e, _f, _g, _i, key_1, _h, _j, element, _k, _l, _m, mean_time_ms, key_2, element, mean_time_s;
+        return __generator(this, function (_o) {
+            switch (_o.label) {
+                case 0:
+                    songs = [];
+                    times_ms = [];
+                    return [4 /*yield*/, jsonObject["total"]];
+                case 1:
+                    number_of_songs = _o.sent();
+                    artists = [];
+                    explicit_rate = 0;
+                    i = 0;
+                    _o.label = 2;
+                case 2:
+                    if (!(i < number_of_songs)) return [3 /*break*/, 16];
+                    return [4 /*yield*/, jsonObject["items"][i]];
+                case 3:
+                    song = _o.sent();
+                    _b = (_a = songs).push;
+                    return [4 /*yield*/, song["name"]];
+                case 4:
+                    _b.apply(_a, [_o.sent()]);
+                    _d = (_c = times_ms).push;
+                    return [4 /*yield*/, song["duration_ms"]];
+                case 5:
+                    _d.apply(_c, [_o.sent()]);
+                    return [4 /*yield*/, song["artists"]];
+                case 6:
+                    _e = _o.sent();
+                    _f = [];
+                    for (_g in _e)
+                        _f.push(_g);
+                    _i = 0;
+                    _o.label = 7;
+                case 7:
+                    if (!(_i < _f.length)) return [3 /*break*/, 13];
+                    _g = _f[_i];
+                    if (!(_g in _e)) return [3 /*break*/, 12];
+                    key_1 = _g;
+                    _j = (_h = Object.prototype.hasOwnProperty).call;
+                    return [4 /*yield*/, song["artists"]];
+                case 8:
+                    if (!_j.apply(_h, [_o.sent(), key_1])) return [3 /*break*/, 11];
+                    return [4 /*yield*/, song["artists"][key_1]];
+                case 9:
+                    element = _o.sent();
+                    _l = (_k = artists).push;
+                    return [4 /*yield*/, element["name"]];
+                case 10:
+                    _l.apply(_k, [_o.sent()]);
+                    _o.label = 11;
+                case 11:
+                    ;
+                    _o.label = 12;
+                case 12:
+                    _i++;
+                    return [3 /*break*/, 7];
+                case 13:
+                    ;
+                    return [4 /*yield*/, song["explicit"]];
+                case 14:
+                    if (_o.sent()) {
+                        explicit_rate = explicit_rate + 1;
+                    }
+                    _o.label = 15;
+                case 15:
+                    i++;
+                    return [3 /*break*/, 2];
+                case 16:
+                    ;
+                    _m = explicit_rate;
+                    return [4 /*yield*/, number_of_songs];
+                case 17:
+                    explicit_rate = _m / (_o.sent());
+                    mean_time_ms = 0;
+                    for (key_2 in times_ms) {
+                        if (Object.prototype.hasOwnProperty.call(times_ms, key_2)) {
+                            element = times_ms[key_2];
+                            mean_time_ms = mean_time_ms + element;
+                        }
+                        ;
+                    }
+                    ;
+                    mean_time_ms = mean_time_ms / number_of_songs;
+                    mean_time_s = mean_time_ms / 1000;
+                    return [2 /*return*/, { "songs": songs, "mean_time_s": mean_time_s, "artists": artists, "explicit_rate": explicit_rate }];
             }
-            ;
-        }
-        ;
-        if (song["explicit"]) {
-            explicit_rate = explicit_rate + 1;
-        }
-    }
-    ;
-    explicit_rate = explicit_rate / number_of_songs;
-    var mean_time_ms = 0;
-    for (var key_2 in times_ms) {
-        if (Object.prototype.hasOwnProperty.call(times_ms, key_2)) {
-            var element = times_ms[key_2];
-            mean_time_ms = mean_time_ms + element;
-        }
-        ;
-    }
-    ;
-    mean_time_ms = mean_time_ms / number_of_songs;
-    var mean_time_s = mean_time_ms / 1000;
-    return { "songs": songs, "mean_time_s": mean_time_s, "artists": artists, "explicit_rate": explicit_rate };
+        });
+    });
 }
 function getJsonData(authKey) {
     return __awaiter(this, void 0, void 0, function () {
@@ -85,8 +140,8 @@ function getJsonData(authKey) {
                     return [4 /*yield*/, response.json()];
                 case 2:
                     jsonData = _a.sent();
-                    console.log(jsonData);
-                    return [2 /*return*/, jsonData];
+                    return [4 /*yield*/, jsonData];
+                case 3: return [2 /*return*/, _a.sent()];
             }
         });
     });
@@ -94,14 +149,21 @@ function getJsonData(authKey) {
 ;
 function main(authKey) {
     return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, handleResponse(getJsonData(authKey))];
-                case 1: return [2 /*return*/, _a.sent()];
+        var songInfo, _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = handleResponse;
+                    return [4 /*yield*/, getJsonData(authKey)];
+                case 1: return [4 /*yield*/, _a.apply(void 0, [_b.sent()])];
+                case 2:
+                    songInfo = _b.sent();
+                    console.log(songInfo);
+                    return [2 /*return*/, songInfo];
             }
         });
     });
 }
 ;
-var key = "BQDGUIRmELnT8dIj6mpwbJKytF99ewzFW6-JzrLdhUOt71mHFBsnk27ZPXCnSHHhV2c2Ko0mggQrSgCaxSQnvcDhdnjcpMfQ2jIC4nEmy32Ppo4hHAoKAFisGRCBbscN1YJlD1GG7q8V780-WAZhvVkMRQrat8aNhxW2wBsBxxJ7tEkOjRNIsRgabNhUVcFgE4bD4m_aF-Cwodq8HE0e_-Nk-plgc3mfeladpUGuJiLXgLVzfiNWEXrkm6c";
-console.log(main(key));
+var key = "BQBKrzwshGu4eThAQZpK1Iv81T7ZnXRB9ce0WP3XHXkunw8vWKp4ipxLJ2YfKX9Xuj0is_8dduX2SqnsK2EGHHZG5DxPHQjWISwSnsOYbYml0tm_Wu5M0M4ZMum-GWEvjykX6D581i0wt0638QExhMV6tn5ftEjSG8JrlFUZIhQmeCq-jNY2TonHgmA0j1TX6h4Ig-ayMH41Sa_GDd9Wp-S60EC2Sl8EUQeiAuIIsGwXRddCKOLiXql-5UU";
+main(key);
