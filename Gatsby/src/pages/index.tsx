@@ -116,7 +116,7 @@ const IndexPage: React.FC<PageProps> = () => {
         Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
         update in real-time.
       </p>
-      <Console log= reading />
+      {/*<Console log= reading />*/}
       <ul style={doclistStyles}>
         {docLinks.map(doc => (
           <li key={doc.url} style={docLinkStyle}>
