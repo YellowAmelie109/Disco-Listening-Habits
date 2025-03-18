@@ -105,7 +105,10 @@ const links = [
 ]
 
 const IndexPage: React.FC<PageProps> = () => {
-  console.log(responseJSON)
+  async function handleJSON(){
+    console.log(await responseJSON)
+  }
+  handleJSON()
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>

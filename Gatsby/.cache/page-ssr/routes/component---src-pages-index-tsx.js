@@ -217,7 +217,6 @@ async function getJsonData(authKey) {
 ;
 async function main(authKey) {
   let songInfo = await handleResponse(await getJsonData(authKey));
-  console.log("H");
   return songInfo;
 }
 ;
