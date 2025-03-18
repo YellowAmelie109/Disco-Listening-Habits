@@ -1,5 +1,6 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
+import responseJSON from "./reading"
 
 const pageStyles = {
   color: "#232129",
@@ -104,7 +105,7 @@ const links = [
 ]
 
 const IndexPage: React.FC<PageProps> = () => {
-  console.log("wow")
+  console.log(responseJSON)
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>

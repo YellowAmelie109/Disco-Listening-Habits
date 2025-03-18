@@ -54,4 +54,5 @@ async function main(authKey: string){
 
 let key = "BQBKrzwshGu4eThAQZpK1Iv81T7ZnXRB9ce0WP3XHXkunw8vWKp4ipxLJ2YfKX9Xuj0is_8dduX2SqnsK2EGHHZG5DxPHQjWISwSnsOYbYml0tm_Wu5M0M4ZMum-GWEvjykX6D581i0wt0638QExhMV6tn5ftEjSG8JrlFUZIhQmeCq-jNY2TonHgmA0j1TX6h4Ig-ayMH41Sa_GDd9Wp-S60EC2Sl8EUQeiAuIIsGwXRddCKOLiXql-5UU"
 console.log(main(key))
-export default main;
+const responseJSON = main(key)
+export default responseJSON;
