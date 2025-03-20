@@ -1,4 +1,4 @@
-async function handleResponse(jsonObject){//looks at the json data and returns an object with the interresting infomation
+async function handleResponse(jsonObject : any){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
     let number_of_songs: number = await jsonObject["total"]
