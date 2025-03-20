@@ -4,7 +4,7 @@ import responseJSON from "./reading"
 import { Link } from "gatsby"
 
 const pageStyles = {
-  color: "#232129",
+  color: "#111400",
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
