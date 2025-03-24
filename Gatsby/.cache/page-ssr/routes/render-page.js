@@ -91,8 +91,7 @@ function getForwards(collectedScripts) {
 exports.components = {
   "component---cache-dev-404-page-js": () => __webpack_require__.e(/*! import() | component---cache-dev-404-page-js */ "component---cache-dev-404-page-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../dev-404-page.js?export=default */ "./.cache/dev-404-page.js?export=default")),
   "component---src-pages-404-tsx": () => __webpack_require__.e(/*! import() | component---src-pages-404-tsx */ "component---src-pages-404-tsx").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/404.tsx?export=default */ "./src/pages/404.tsx?export=default")),
-  "component---src-pages-index-tsx": () => __webpack_require__.e(/*! import() | component---src-pages-index-tsx */ "component---src-pages-index-tsx").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/index.tsx?export=default */ "./src/pages/index.tsx?export=default")),
-  "component---src-pages-reading-ts": () => __webpack_require__.e(/*! import() | component---src-pages-reading-ts */ "component---src-pages-reading-ts").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/reading.ts?export=default */ "./src/pages/reading.ts?export=default"))
+  "component---src-pages-index-tsx": () => __webpack_require__.e(/*! import() | component---src-pages-index-tsx */ "component---src-pages-index-tsx").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/index.tsx?export=default */ "./src/pages/index.tsx?export=default"))
 };
 
 exports.head = {

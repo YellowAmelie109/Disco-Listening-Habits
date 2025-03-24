@@ -1,15 +1,23 @@
+//This file is meant for making a pie chart of genres, however, spotify only returns genres
+//for a small amount of artists. A lot of popular artists do not have genres attached.
+
+//It just so happens all the artists on the shared spotify account have genres, but 
+//barely any have any genres for my home account.
+
 import * as React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import responseJSON from "./reading"
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+
 export const data = {
-  labels: ['Pop', 'Hip-hop', 'Rock', 'idk', 'Rap'],//From the get several artists endpoint
+  labels: ['Pop', 'Hip-hop', 'Rock', 'idk', 'Rap'],
   datasets: [
     {
       label: 'Songs',
-      data: [25, 20, 8, 12, 34], //Number of artists with those genres*number of songs in the top 50 or 100 by that artist the user listens to
+      data: [25, 20, 8, 12, 34], 
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -30,6 +38,14 @@ export const data = {
 };
 
 const PieChart = () => {  //width controls both width and height of the pie chart
+  async function getGenres(){
+    const songData= await responseJSON
+    const songs: string[] = await songData["songs"]
+    return songs
+    
+  }
+  const something=getGenres()
+  console.log(something)
   return (
     <div style={{ width: '250px' }}>
       <Pie data={data} />
