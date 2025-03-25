@@ -16,8 +16,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "../../../../../node_modules/chart.js/dist/chart.js");
-/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-chartjs-2 */ "../../../../../node_modules/react-chartjs-2/dist/index.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "../node_modules/chart.js/dist/chart.js");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-chartjs-2 */ "../node_modules/react-chartjs-2/dist/index.js");
 /* harmony import */ var _reading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reading */ "./src/components/reading.ts");
 //This file is meant for making a pie chart of genres, however, spotify only returns genres
 //for a small amount of artists. A lot of popular artists do not have genres attached.
@@ -4263,10 +4263,10 @@ module.exports.implForWrapper = function (wrapper) {
 
 /***/ }),
 
-/***/ "../../../../../node_modules/@kurkle/color/dist/color.esm.js":
-/*!*******************************************************************!*\
-  !*** ../../../../../node_modules/@kurkle/color/dist/color.esm.js ***!
-  \*******************************************************************/
+/***/ "../node_modules/@kurkle/color/dist/color.esm.js":
+/*!*******************************************************!*\
+  !*** ../node_modules/@kurkle/color/dist/color.esm.js ***!
+  \*******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4886,10 +4886,10 @@ function index_esm(input) {
 
 /***/ }),
 
-/***/ "../../../../../node_modules/chart.js/dist/chart.js":
-/*!**********************************************************!*\
-  !*** ../../../../../node_modules/chart.js/dist/chart.js ***!
-  \**********************************************************/
+/***/ "../node_modules/chart.js/dist/chart.js":
+/*!**********************************************!*\
+  !*** ../node_modules/chart.js/dist/chart.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4942,7 +4942,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   registry: () => (/* binding */ registry),
 /* harmony export */   scales: () => (/* binding */ scales)
 /* harmony export */ });
-/* harmony import */ var _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chunks/helpers.segment.js */ "../../../../../node_modules/chart.js/dist/chunks/helpers.segment.js");
+/* harmony import */ var _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chunks/helpers.segment.js */ "../node_modules/chart.js/dist/chunks/helpers.segment.js");
 /*!
  * Chart.js v4.4.8
  * https://www.chartjs.org
@@ -16439,10 +16439,10 @@ const registerables = [
 
 /***/ }),
 
-/***/ "../../../../../node_modules/chart.js/dist/chunks/helpers.segment.js":
-/*!***************************************************************************!*\
-  !*** ../../../../../node_modules/chart.js/dist/chunks/helpers.segment.js ***!
-  \***************************************************************************/
+/***/ "../node_modules/chart.js/dist/chunks/helpers.segment.js":
+/*!***************************************************************!*\
+  !*** ../node_modules/chart.js/dist/chunks/helpers.segment.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16573,7 +16573,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   y: () => (/* binding */ _parseObjectDataRadialScale),
 /* harmony export */   z: () => (/* binding */ getRelativePosition)
 /* harmony export */ });
-/* harmony import */ var _kurkle_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kurkle/color */ "../../../../../node_modules/@kurkle/color/dist/color.esm.js");
+/* harmony import */ var _kurkle_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kurkle/color */ "../node_modules/@kurkle/color/dist/color.esm.js");
 /*!
  * Chart.js v4.4.8
  * https://www.chartjs.org
@@ -19337,10 +19337,10 @@ function styleChanged(style, prevStyle) {
 
 /***/ }),
 
-/***/ "../../../../../node_modules/react-chartjs-2/dist/index.js":
-/*!*****************************************************************!*\
-  !*** ../../../../../node_modules/react-chartjs-2/dist/index.js ***!
-  \*****************************************************************/
+/***/ "../node_modules/react-chartjs-2/dist/index.js":
+/*!*****************************************************!*\
+  !*** ../node_modules/react-chartjs-2/dist/index.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -19359,7 +19359,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getElementsAtEvent: () => (/* binding */ getElementsAtEvent)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "../../../../../node_modules/chart.js/dist/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "../node_modules/chart.js/dist/chart.js");
 
 
 
