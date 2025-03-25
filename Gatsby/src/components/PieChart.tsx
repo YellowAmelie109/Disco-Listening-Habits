@@ -43,7 +43,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
     //const songs: string[] = await songData["songs"]
     //return songs
     
-  }
+  //}
   //const something=getGenres()
   //console.log(something)
   return (
