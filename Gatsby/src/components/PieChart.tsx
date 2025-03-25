@@ -7,7 +7,7 @@
 import * as React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import responseJSON from "./reading"
+//import responseJSON from "./reading"
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -38,14 +38,14 @@ export const data = {
 };
 
 const PieChart = () => {  //width controls both width and height of the pie chart
-  async function getGenres(){
-    const songData= await responseJSON
-    const songs: string[] = await songData["songs"]
-    return songs
+ // async function getGenres(){
+   // const songData= await responseJSON
+    //const songs: string[] = await songData["songs"]
+    //return songs
     
   }
-  const something=getGenres()
-  console.log(something)
+  //const something=getGenres()
+  //console.log(something)
   return (
     <div style={{ width: '250px' }}>
       <Pie data={data} />
