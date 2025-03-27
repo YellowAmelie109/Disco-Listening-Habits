@@ -13,6 +13,7 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
             if (Object.prototype.hasOwnProperty.call(await song["artists"], key)) {
                 const element = await song["artists"][key];
                 artists.push(await element["name"]);
+                getSonginfo([[song["name"], element["name"]]])
             };
         };
         if (await song["explicit"]){
@@ -63,7 +64,7 @@ async function getSonginfo(songs : string[][]) {
         if (Object.prototype.hasOwnProperty.call(songs, key)) {
             const song = songs[key];
             
-            const response = await fetch("https://ws.audioscrobbler.com/2.0/?methond=track.gettoptags&artist=".concat(song[0], "&track=$", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92"))
+            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"))
             console.log(response)
             //songData.push([song[0], song[1], ])
         }
