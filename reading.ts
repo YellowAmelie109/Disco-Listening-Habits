@@ -1,3 +1,5 @@
+import { json } from "stream/consumers"
+
 async function handleResponse(jsonObject){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
@@ -36,23 +38,24 @@ async function handleResponse(jsonObject){//looks at the json data and returns a
 }
 
 async function getJsonData(authKey) {//from app.js gets the json from the spotify api
-    const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
+    const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50&offset=0", {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + authKey},
     });
 
     let jsonData = await response.json()
-
+    console.log(await jsonData)
     return await jsonData
 };
 
 async function main(authKey: string){
     let songInfo = await handleResponse(await getJsonData(authKey));
-    console.log("H")
+    console.log(songInfo)
     return songInfo
 };
 
-let key = "BQBKrzwshGu4eThAQZpK1Iv81T7ZnXRB9ce0WP3XHXkunw8vWKp4ipxLJ2YfKX9Xuj0is_8dduX2SqnsK2EGHHZG5DxPHQjWISwSnsOYbYml0tm_Wu5M0M4ZMum-GWEvjykX6D581i0wt0638QExhMV6tn5ftEjSG8JrlFUZIhQmeCq-jNY2TonHgmA0j1TX6h4Ig-ayMH41Sa_GDd9Wp-S60EC2Sl8EUQeiAuIIsGwXRddCKOLiXql-5UU"
-console.log(main(key))
+let key = "BQBvBN4nuW36ef6HW2B9zKsiYJt72pKXyBag2VstF0VkFJ5TG4BhmbOGIdBQHhvJLPpypU06ZDcdxgTRKYW3heOvzKWwss0USQ9bvKiudijmEPVALrrRwxABt2F2WE_D0DSxke3YOwC30_GIsebQ0DbMDVCONNfpGRQpAAlCWwZri2lMPQsOboLyNPu_cWW0Pv-_AeV4JEfyQSrQy3SYrPwpMwNOvKm74r11YuYOVuikGEJddGFJcSfuLz0"
+//console.log(main(key))
 const responseJSON = main(key)
-export default responseJSON;
+//export default responseJSON;
+console.log (responseJSON)
