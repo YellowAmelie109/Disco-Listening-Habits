@@ -51,7 +51,7 @@ async function main(authKey: string){
     return songInfo
 };
 
-let key = "BQANdXNYVlbdfiIWz4P8U8645l5tF8lXIclddwsGvf9MN7fQMOiK1RDnyJuHDQYlmRA5NKcUJ9bXjtQUjENnS7hZKM1FNJDsD68ZnbHnHirKCw2QNWK5ZVVVWusmlEubpy062KrF-DnBK0izjzr6WpA09UgW6nfPM6rOcQugH0ZWkCV1qpKZDMG9dI6Q8BZLvb2voRBUGralGt_PjltX-Fz5NcRm3Uw7KGcIhXTuyxuL-WCljGAex_FR3FQ"
+let key = ""
 console.log(main(key))
 const responseJSON = main(key)
 //export default responseJSON;
@@ -63,7 +63,7 @@ async function getSonginfo(songs : string[][]) {
         if (Object.prototype.hasOwnProperty.call(songs, key)) {
             const song = songs[key];
             
-            const response = await fetch("https://ws.audioscrobbler.com/2.0/?methond=track.gettoptags&artist=".concat(song[0], "&track=$", song[1],"api_key=", "64773b9be5304689ec27ead878787c92"))
+            const response = await fetch("https://ws.audioscrobbler.com/2.0/?methond=track.gettoptags&artist=".concat(song[0], "&track=$", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92"))
             console.log(response)
             //songData.push([song[0], song[1], ])
         }
