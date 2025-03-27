@@ -64,7 +64,11 @@ async function getSonginfo(songs : string[][]) {
         if (Object.prototype.hasOwnProperty.call(songs, key)) {
             const song = songs[key];
             
-            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"))
+            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json", {
+                method: 'GET',
+            });
+
+        
             console.log(await response)
             console.log(await response["toptags"])
             console.log(await response["toptags"]["tag"])
