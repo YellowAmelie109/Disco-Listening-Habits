@@ -1,13 +1,16 @@
-**Website link**
+## Generating Authorisation Key:
 
-<a href=https://disco-listening-habits.netlify.app/>https://disco-listening-habits.netlify.app/</a>
+From a console shell:
 
-Edit `src/pages/index.tsx` to see your site update in real-time!
+    $ cd /path/to/dicso-listening-habits
+    $ npm install --prefix ./Authorisation
+    $ npm start --prefix ./Authorisation
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+Then, open `http://localhost:8080` in a browser.
 
+If you end up logged in as a null user logout and in again fully
+
+## Website
+<a href="https://disco-listening-habits.netlify.app/"> Website link </a>
+
+The website can be edited within the Gatsby folder. Index.tsx is the main file that controls the website.
