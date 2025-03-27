@@ -65,7 +65,7 @@ async function getSonginfo(songs : string[][]) {
             const song = songs[key];
             
             const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"))
-            console.log(response)
+            console.log(response["toptags"]["tag"][0])
             //songData.push([song[0], song[1], ])
         }
     }
