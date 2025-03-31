@@ -13,7 +13,7 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
             if (Object.prototype.hasOwnProperty.call(await song["artists"], key)) {
                 const element = await song["artists"][key];
                 artists.push(await element["name"]);
-                //getSonginfo([[song["name"], element["name"]]])
+                getSonginfo([[song["name"], element["name"]]])
             };
         };
         if (await song["explicit"]){
@@ -49,6 +49,7 @@ async function getJsonData(authKey: string) {//from app.js gets the json from th
 
 async function main(authKey: string){
     let songInfo = await handleResponse(await getJsonData(authKey));
+
     return songInfo
 };
 
@@ -57,7 +58,7 @@ console.log(main(key))
 const responseJSON = main(key)
 export default responseJSON;
 
-async function getSonginfo(songs : string[][]) {
+async function getSonginfo(songs: any[]) {
     var songData: string[]
     
     for (const key in songs) {
