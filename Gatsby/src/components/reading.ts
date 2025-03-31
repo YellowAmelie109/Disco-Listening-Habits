@@ -69,10 +69,10 @@ async function getSonginfo(songs : string[][]) {
             }),
 
         
-            console.log(await response)
-            console.log(await response["toptags"])
-            console.log(await response["toptags"]["tag"])
-            console.log(await response["toptags"]["tag"][0])
+            console.log(await response);
+            console.log(await response["toptags"]);
+            console.log(await response["toptags"]["tag"]);
+            console.log(await response["toptags"]["tag"][0]);
             //songData.push([song[0], song[1], ])
         }
     }
