@@ -61,24 +61,24 @@ export default responseJSON;
 async function getSonginfo(songs: any[]) {
     var songData: string[]
     
-    for (const key in songs) {
-        if (Object.prototype.hasOwnProperty.call(songs, key)) {
-            const song = songs[key];
-            
-            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
-                method: 'GET',
-            });
+    //for (const key in songs) {
+    //    if (Object.prototype.hasOwnProperty.call(songs, key)) {
+    const song = songs[0];
+    
+    const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
+        method: 'GET',
+    });
 
-        
-            console.log(await response);
-            console.log(await response["toptags"]);
-            console.log(await response["toptags"]["tag"]);
-            if (await response["toptags"]["tag"] = []){
-                console.log(await response["toptags"]["tag"][0]);            
-            }
-            //songData.push([song[0], song[1], ])
-        }
+
+    console.log(await response);
+    console.log(await response["toptags"]);
+    console.log(await response["toptags"]["tag"]);
+    if (await response["toptags"]["tag"] = []){
+        console.log(await response["toptags"]["tag"][0]);            
     }
+            //songData.push([song[0], song[1], ])
+    //    }
+    //}
     
 }
 
