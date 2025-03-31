@@ -33,8 +33,8 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
     mean_time_ms = mean_time_ms / number_of_songs;
     let mean_time_s = mean_time_ms/1000
 
-    return {"songs":songs, "mean_time_s":mean_time_s, "artists":artists, "explicit_rate":explicit_rate}
-}
+    return {"songs":songs, "artists":artists, "times_ms":times_ms, "mean_time_s":mean_time_s, "explicit_rate":explicit_rate}
+};
 
 async function getJsonData(authKey: string) {//from app.js gets the json from the spotify api
     const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
