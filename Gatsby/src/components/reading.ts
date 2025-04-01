@@ -53,7 +53,7 @@ async function main(authKey: string){
     return songInfo
 };
 
-let key = "BQDRBCZhnqSM_6yhsQpUGQKaSqYBgZ0R5a8x3aBvTNZlJ79nqQOmN23PupfbuPLaKtzQqvTupaPpEaEoPcW9onvFUpNZzHgHYT_Q8baEkFvrnHBDjZ7h-4mS4HPnEC-eDZIDBCuMQtY8I7XYO7jbvpDKAKvRFVxIp-LGqx7Yaql3LEB_k7EJkyLn0VaSZEHihKyrTVZgzdJ30VWizZx-4xTxPfleYODleyyuLO_p6swt0lYqwbT-RzXZWT8"
+let key = "BQBovzBm0hqpx-idOwpK-QVFLx-1U2dEFVW79wlWDuLdn9xZA7K2QLKakqydykE5jM5SrQA8ygOhVd4VIQTKAmU0Yr7z3MbCpmuFkzV93dCq68qjB_jRRmfSmiCYl_o6t21IrCTbbiFZFiIQGJ5YwIErsHB8khAuXYjRGRED0sEXtXjqfPS931Cn9FU_SpEVhbsxSF1Z2OQJJkRyHhzW_ksyxqSuyxtyNzfNqRyoEzDWf3wkZIayhGc22u0"
 console.log(main(key))
 const responseJSON = main(key)
 export default responseJSON;
