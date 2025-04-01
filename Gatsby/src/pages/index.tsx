@@ -3,6 +3,7 @@ import type { HeadFC, PageProps } from "gatsby"
 import responseJSON from "../components/reading"
 import { Link } from "gatsby"
 import PieChart from "../components/PieChart"
+//import token from "../components/authorization"
 
 const pageStyles = {
   color: "#111400",

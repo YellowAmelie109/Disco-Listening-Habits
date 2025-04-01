@@ -74,4 +74,5 @@ const redirect_url: string = "https://disco-listening-habits.netlify.app/";
 const auth_base_url: string = "https://accounts.spotify.com/authorize";
 const token_base_url: string = "https://accounts.spotify.com/api/token";
 
-export default get_token()
+let token = get_token()
+export default token

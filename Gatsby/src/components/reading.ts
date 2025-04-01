@@ -1,3 +1,5 @@
+import token from "../components/authorization"
+
 async function handleResponse(jsonObject : any){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
@@ -53,11 +55,6 @@ async function main(authKey: string){
     return songInfo
 };
 
-let key = "BQBovzBm0hqpx-idOwpK-QVFLx-1U2dEFVW79wlWDuLdn9xZA7K2QLKakqydykE5jM5SrQA8ygOhVd4VIQTKAmU0Yr7z3MbCpmuFkzV93dCq68qjB_jRRmfSmiCYl_o6t21IrCTbbiFZFiIQGJ5YwIErsHB8khAuXYjRGRED0sEXtXjqfPS931Cn9FU_SpEVhbsxSF1Z2OQJJkRyHhzW_ksyxqSuyxtyNzfNqRyoEzDWf3wkZIayhGc22u0"
-console.log(main(key))
-const responseJSON = main(key)
-export default responseJSON;
-
 async function getSonginfo(songs: any[]) {
     var songData: string[]
     
@@ -81,5 +78,10 @@ async function getSonginfo(songs: any[]) {
     //}
     
 }
+
+let key = "BQBovzBm0hqpx-idOwpK-QVFLx-1U2dEFVW79wlWDuLdn9xZA7K2QLKakqydykE5jM5SrQA8ygOhVd4VIQTKAmU0Yr7z3MbCpmuFkzV93dCq68qjB_jRRmfSmiCYl_o6t21IrCTbbiFZFiIQGJ5YwIErsHB8khAuXYjRGRED0sEXtXjqfPS931Cn9FU_SpEVhbsxSF1Z2OQJJkRyHhzW_ksyxqSuyxtyNzfNqRyoEzDWf3wkZIayhGc22u0"
+console.log(main(token))
+const responseJSON = main(key)
+export default responseJSON;
 
 //export default getSonginfo([["radiohead", "paranoid+android"]])
