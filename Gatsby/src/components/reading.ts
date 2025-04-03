@@ -67,7 +67,7 @@ async function getSonginfo(songs: any[]) {
     });
 
 
-    console.log(await response);
+    console.log(await response.json());
     //console.log(await response["toptags"]);
     //console.log(await response["toptags"]["tag"]);
     //if (await response["toptags"]["tag"] == []){
