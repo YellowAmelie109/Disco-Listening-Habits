@@ -79,7 +79,6 @@ async function getSonginfo(songs: any[]) {
     
 }
 
-
 let key = "BQD7jtnnIM6b1M8lE8nFw6Id49gXrwfLHlR4WI4YiVJaQGn2woIa8Jepd1jr8aBGdrS3cln4DXLcSoW0_pH_IVHuXrxXpWy5LN4ePiWotnFjgihrGGIiE3UCOyraE_pD3Jl74VDlDe4QNeEw0aYAc0DQjeusRvYNfOxuE1pvOxoFYHYTi-91pm4G1gdi2vAYa7QTglgOhOIH-YwXrf7adMqP67c82mTPDuuwg_dmQHD9KiQtPXH6ijufVZQ"
 //console.log(main(token))
 
