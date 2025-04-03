@@ -68,23 +68,9 @@ async function getSonginfo(songs: any[]) {
         
         let currentData = await response.json()
 
-<<<<<<< Updated upstream
-
-    console.log(await response);
-    //console.log(await response["toptags"]);
-    //console.log(await response["toptags"]["tag"]);
-    //if (await response["toptags"]["tag"] == []){
-    //    console.log(await response["toptags"]["tag"][0]);            
-    //}
-            //songData.push([song[0], song[1], ])
-    //    }
-    //}
-    
-=======
         songData.push([await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["@attr"]["artits"], await currentData["toptags"]["tags"]])
        }
     }
->>>>>>> Stashed changes
 }
 
 
