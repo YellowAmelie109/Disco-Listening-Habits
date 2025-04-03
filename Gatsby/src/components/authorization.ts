@@ -40,9 +40,9 @@ function get_token() {
 
   let auth_url = new URL(auth_base_url);
   auth_url.search = new URLSearchParams(request_headers).toString();
-  window.location.href = auth_url.toString();   //may need to be adjusted
+  typeof window !== "undefined"? (() => {window.location.href = auth_url.toString();})(): ""; //window.location.href = auth_url.toString(); 
 
-  let url_parameters = new URLSearchParams(window.location.search);
+  typeof window !== "undefined"? (() => {let url_parameters = new URLSearchParams(window.location.search);})(): ""; //let url_parameters = new URLSearchParams(window.location.search);
   let code = url_parameters.get("code");
   
   //requesting the token
