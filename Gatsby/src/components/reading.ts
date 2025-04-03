@@ -51,7 +51,7 @@ async function getJsonData(authKey: string) {//from app.js gets the json from th
 async function main(authKey: string){
     let songInfo = await handleResponse(await getJsonData(authKey));
 
-    let songs: string[][] = [][]
+    let songs: string[][] = []
 
     for (const key in songInfo["songs"]) {
         if (Object.prototype.hasOwnProperty.call(object, key)) {
