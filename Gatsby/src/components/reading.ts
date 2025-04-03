@@ -1,4 +1,4 @@
-import token from "../components/authorization"
+//import token from "../components/authorization"
 
 async function handleResponse(jsonObject : any){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
@@ -68,19 +68,21 @@ async function getSonginfo(songs: any[]) {
 
 
     console.log(await response);
-    console.log(await response["toptags"]);
-    console.log(await response["toptags"]["tag"]);
-    if (await response["toptags"]["tag"] == []){
-        console.log(await response["toptags"]["tag"][0]);            
-    }
+    //console.log(await response["toptags"]);
+    //console.log(await response["toptags"]["tag"]);
+    //if (await response["toptags"]["tag"] == []){
+    //    console.log(await response["toptags"]["tag"][0]);            
+    //}
             //songData.push([song[0], song[1], ])
     //    }
     //}
     
 }
 
-let key = "BQBovzBm0hqpx-idOwpK-QVFLx-1U2dEFVW79wlWDuLdn9xZA7K2QLKakqydykE5jM5SrQA8ygOhVd4VIQTKAmU0Yr7z3MbCpmuFkzV93dCq68qjB_jRRmfSmiCYl_o6t21IrCTbbiFZFiIQGJ5YwIErsHB8khAuXYjRGRED0sEXtXjqfPS931Cn9FU_SpEVhbsxSF1Z2OQJJkRyHhzW_ksyxqSuyxtyNzfNqRyoEzDWf3wkZIayhGc22u0"
-console.log(main(token))
+
+let key = "BQD7jtnnIM6b1M8lE8nFw6Id49gXrwfLHlR4WI4YiVJaQGn2woIa8Jepd1jr8aBGdrS3cln4DXLcSoW0_pH_IVHuXrxXpWy5LN4ePiWotnFjgihrGGIiE3UCOyraE_pD3Jl74VDlDe4QNeEw0aYAc0DQjeusRvYNfOxuE1pvOxoFYHYTi-91pm4G1gdi2vAYa7QTglgOhOIH-YwXrf7adMqP67c82mTPDuuwg_dmQHD9KiQtPXH6ijufVZQ"
+//console.log(main(token))
+
 const responseJSON = main(key)
 export default responseJSON;
 
