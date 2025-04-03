@@ -56,16 +56,19 @@ async function main(authKey: string){
 };
 
 async function getSonginfo(songs: any[]) {
-    var songData: string[]
+    var songData: string[][] = []
     
-    //for (const key in songs) {
-    //    if (Object.prototype.hasOwnProperty.call(songs, key)) {
-    const song = songs[0];
+    for (const key in songs) {
+        if (Object.prototype.hasOwnProperty.call(songs, key)) {
+        const song = songs[key];
     
-    const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
+        const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
         method: 'GET',
-    });
+        });
+        
+        let currentData = await response.json()
 
+<<<<<<< Updated upstream
 
     console.log(await response);
     //console.log(await response["toptags"]);
@@ -77,6 +80,11 @@ async function getSonginfo(songs: any[]) {
     //    }
     //}
     
+=======
+        songData.push([await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["@attr"]["artits"], await currentData["toptags"]["tags"]])
+       }
+    }
+>>>>>>> Stashed changes
 }
 
 
