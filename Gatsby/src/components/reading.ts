@@ -53,14 +53,14 @@ async function main(authKey: string){
 
     let songs: string[][] = []
 
-    for (const key in songInfo["songs"]) {
-        if (Object.prototype.hasOwnProperty.call(object, key)) {
+    for (const key in await songInfo["songs"]) {
+        if (Object.prototype.hasOwnProperty.call(songInfo["songs"], key)) {
             const element = [songInfo["songs"][key], songInfo["artists"][key]];
-            songs.push(element);
+            songs.push(await element);
         };
     };
 
-    songInfo["songs"]  = getSonginfo(songs)
+    songInfo["songs"]  = await getSonginfo(songs)
 
     return songInfo
 };
