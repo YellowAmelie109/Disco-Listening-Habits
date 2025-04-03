@@ -56,29 +56,22 @@ async function main(authKey: string){
 };
 
 async function getSonginfo(songs: any[]) {
-    var songData: string[]
+    var songData: string[][] = []
     
-    //for (const key in songs) {
-    //    if (Object.prototype.hasOwnProperty.call(songs, key)) {
-    const song = songs[0];
+    for (const key in songs) {
+        if (Object.prototype.hasOwnProperty.call(songs, key)) {
+        const song = songs[key];
     
-    const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
+        const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
         method: 'GET',
-    });
+        });
+        
+        let currentData = await response.json()
 
-
-    console.log(await response.json());
-    //console.log(await response["toptags"]);
-    //console.log(await response["toptags"]["tag"]);
-    //if (await response["toptags"]["tag"] == []){
-    //    console.log(await response["toptags"]["tag"][0]);            
-    //}
-            //songData.push([song[0], song[1], ])
-    //    }
-    //}
-    
+        songData.push([await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["@attr"]["artits"], await currentData["toptags"]["tags"]])
+       }
+    }
 }
-
 let key = "BQD7jtnnIM6b1M8lE8nFw6Id49gXrwfLHlR4WI4YiVJaQGn2woIa8Jepd1jr8aBGdrS3cln4DXLcSoW0_pH_IVHuXrxXpWy5LN4ePiWotnFjgihrGGIiE3UCOyraE_pD3Jl74VDlDe4QNeEw0aYAc0DQjeusRvYNfOxuE1pvOxoFYHYTi-91pm4G1gdi2vAYa7QTglgOhOIH-YwXrf7adMqP67c82mTPDuuwg_dmQHD9KiQtPXH6ijufVZQ"
 //console.log(main(token))
 
