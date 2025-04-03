@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import CryptoJS from "crypto-js";
 
-let token = ""
+let token: string = ""
 
 typeof window !== "undefined"? (() => { 
   function generate_random_string(): string {
@@ -79,4 +79,5 @@ typeof window !== "undefined"? (() => {
   
   token = get_token()
 })(): "";
+
 export default token
