@@ -1,5 +1,3 @@
-//import token from "../components/authorization"
-
 async function handleResponse(jsonObject : any){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
@@ -37,7 +35,7 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
     return {"songs":songs, "artists":artists, "times_ms":times_ms, "mean_time_s":mean_time_s, "explicit_rate":explicit_rate}
 };
 
-async function getJsonData(authKey: string) {//from app.js gets the json from the spotify api
+async function getJsonData(authKey: string|null) {//from app.js gets the json from the spotify api
     const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + authKey},
@@ -48,7 +46,7 @@ async function getJsonData(authKey: string) {//from app.js gets the json from th
     return await jsonData
 };
 
-async function main(authKey: string){
+export async function main(authKey: string|null){
     let songInfo = await handleResponse(await getJsonData(authKey));
 
     let songs: string[][] = []
@@ -82,10 +80,9 @@ async function getSonginfo(songs: any[]) {
        }
     }
 }
-let key = "BQD7jtnnIM6b1M8lE8nFw6Id49gXrwfLHlR4WI4YiVJaQGn2woIa8Jepd1jr8aBGdrS3cln4DXLcSoW0_pH_IVHuXrxXpWy5LN4ePiWotnFjgihrGGIiE3UCOyraE_pD3Jl74VDlDe4QNeEw0aYAc0DQjeusRvYNfOxuE1pvOxoFYHYTi-91pm4G1gdi2vAYa7QTglgOhOIH-YwXrf7adMqP67c82mTPDuuwg_dmQHD9KiQtPXH6ijufVZQ"
-//console.log(main(token))
-
-const responseJSON = main(key)
+const token = window.localStorage.getItem('token');
+console.log(main(token));
+const responseJSON = main(token);
 export default responseJSON;
 
 //export default getSonginfo([["radiohead", "paranoid+android"]])

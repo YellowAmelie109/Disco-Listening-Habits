@@ -1,9 +1,10 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import responseJSON from "../components/reading"
+//import responseJSON from "../components/reading"
 import { Link } from "gatsby"
 import PieChart from "../components/PieChart"
-//import token from "../components/authorization"
+import {get_token} from "../components/authorization"
+import Header from "../components/header"
 
 const pageStyles = {
   color: "#111400",
@@ -108,12 +109,24 @@ const links = [
 ]
 
 const IndexPage: React.FC<PageProps> = () => {
-  async function handleJSON(){
-    console.log(await responseJSON)
-  }
-  handleJSON()
+  //async function handleJSON(){
+    //console.log(await responseJSON)
+  //}
+  //handleJSON()
+  typeof window !== "undefined"? (() => { 
+    let url_parameters = new URLSearchParams(window.location.search);
+    let code = url_parameters.get("code")
+    if (code){
+      get_token(code)
+      history.replaceState && history.replaceState(
+        null, '', location.pathname + location.search.replace(/[\?&]code=[^&]+/, '').replace(/^&/, '?')
+      );
+      //location.reload();
+    }
+  })(): "";
   return (
     <main style={pageStyles}>
+      <Header />
       <h1 style={headingStyles}>
         Disco Listening Habits
         <br />
