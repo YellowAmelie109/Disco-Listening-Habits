@@ -1,5 +1,3 @@
-import token from "../components/authorization"
-
 async function handleResponse(jsonObject : any){//looks at the json data and returns an object with the interresting infomation
     let songs: string[] = []
     let times_ms: number[] = []
@@ -38,7 +36,7 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
     return {"songs":songs, "artists":artists, "times_ms":times_ms, "mean_time_s":mean_time_s, "explicit_rate":explicit_rate}
 };
 
-async function getJsonData(authKey: string) {//from app.js gets the json from the spotify api
+async function getJsonData(authKey: string|null) {//from app.js gets the json from the spotify api
     const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + authKey},
@@ -49,7 +47,7 @@ async function getJsonData(authKey: string) {//from app.js gets the json from th
     return await jsonData
 };
 
-async function main(authKey: string){
+export async function main(authKey: string|null){
     let songInfo = await handleResponse(await getJsonData(authKey));
 
     return songInfo
@@ -67,21 +65,20 @@ async function getSonginfo(songs: any[]) {
     });
 
 
-    console.log(await response);
+    /**console.log(await response);
     console.log(await response["toptags"]);
     console.log(await response["toptags"]["tag"]);
     if (await response["toptags"]["tag"] == []){
         console.log(await response["toptags"]["tag"][0]);            
-    }
+    }*/
             //songData.push([song[0], song[1], ])
     //    }
     //}
     
 }
 
-let key = "BQBovzBm0hqpx-idOwpK-QVFLx-1U2dEFVW79wlWDuLdn9xZA7K2QLKakqydykE5jM5SrQA8ygOhVd4VIQTKAmU0Yr7z3MbCpmuFkzV93dCq68qjB_jRRmfSmiCYl_o6t21IrCTbbiFZFiIQGJ5YwIErsHB8khAuXYjRGRED0sEXtXjqfPS931Cn9FU_SpEVhbsxSF1Z2OQJJkRyHhzW_ksyxqSuyxtyNzfNqRyoEzDWf3wkZIayhGc22u0"
+const token = window.localStorage.getItem('token')
 console.log(main(token))
-const responseJSON = main(key)
-export default responseJSON;
+const responseJSON = main(token)
 
 //export default getSonginfo([["radiohead", "paranoid+android"]])
