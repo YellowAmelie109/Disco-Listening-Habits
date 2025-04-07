@@ -28,7 +28,10 @@ const Header = () => {
         location.reload();
     }
 
-    let token = window.localStorage.getItem('token')||null
+    let token
+    typeof window !== "undefined"? (() => { 
+        token = window.localStorage.getItem('token')||null
+    })(): "";
     const [userName,setUserName] = useState("Unknown")
     if (token){
         getProfileData(token)
