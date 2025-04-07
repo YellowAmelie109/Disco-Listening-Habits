@@ -48,8 +48,7 @@ const Header = () => {
         return (
             <div>
                 <div style={{float:'right'}}>
-                    <button style = {{float:'right'}} type="button" onClick={() => handleToken()}>Login</button>
-                    <p>Refresh or press login again if you just logged in</p>
+                    <button style = {{float:'right'}} type="button" onClick={() => handleToken()}>Sign in</button>
                 </div>
             </div>
         );

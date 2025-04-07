@@ -20,7 +20,7 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
         }
     };
     
-    explicit_rate = explicit_rate / await number_of_songs
+    explicit_rate = explicit_rate / number_of_songs
 
     let mean_time_ms: number = 0
     for (const key in times_ms) {
@@ -46,10 +46,10 @@ async function getJsonData(authKey: string|null) {//from app.js gets the json fr
     return await jsonData
 };
 
-export async function main(authKey: string|null){
-    let songInfo = await handleResponse(await getJsonData(authKey));
+export async function main(/**authKey: string|null*/){
+    let songInfo = await handleResponse(await getJsonData(window.localStorage.getItem('token')));
 
-    let songs: string[][] = []
+    /**let songs: string[][] = []
 
     for (const key in await songInfo["songs"]) {
         if (Object.prototype.hasOwnProperty.call(songInfo["songs"], key)) {
@@ -58,7 +58,7 @@ export async function main(authKey: string|null){
         };
     };
 
-    songInfo["songs"]  = await getSonginfo(songs)
+    songInfo["songs"]  = await getSonginfo(songs)*/
 
     return songInfo
 };
@@ -80,9 +80,9 @@ async function getSonginfo(songs: any[]) {
        }
     }
 }
-const token = window.localStorage.getItem('token');
-console.log(main(token));
-const responseJSON = main(token);
-export default responseJSON;
+//const token = window.localStorage.getItem('token');
+//console.log(main(token));
+//const responseJSON = main();
+//export default responseJSON;
 
 //export default getSonginfo([["radiohead", "paranoid+android"]])

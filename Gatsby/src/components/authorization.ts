@@ -47,7 +47,7 @@
   }
   export async function get_token(code:string){
     //requesting the token
-    let code_verifier=window.localStorage.getItem('code_verifier');
+    let code_verifier=window.localStorage.getItem('code_verifier')||"";
     let payload_body = {
       "grant_type": "authorization_code",
       "code": code,
@@ -69,10 +69,14 @@
     let data_json = await data.json();
     window.localStorage.setItem('token',await data_json.access_token)
     window.localStorage.removeItem('code_verifier');
+    function refresh(p:object){
+      location.reload();
+    };
+    refresh(await data_json);
   }
   
   const client_id: string = "32426a32c5f94055871f2d73e5516465";
-  const redirect_url: string = "https://disco-listening-habits.netlify.app";
+  const redirect_url: string = "http://localhost:8000";
   const auth_base_url: string = "https://accounts.spotify.com/authorize";
   const token_base_url: string = "https://accounts.spotify.com/api/token";
 
