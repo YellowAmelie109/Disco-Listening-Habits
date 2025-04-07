@@ -76,7 +76,7 @@
   }
   
   const client_id: string = "32426a32c5f94055871f2d73e5516465";
-  const redirect_url: string = "http://localhost:8000";
+  const redirect_url: string = "https://disco-listening-habits.netlify.app";
   const auth_base_url: string = "https://accounts.spotify.com/authorize";
   const token_base_url: string = "https://accounts.spotify.com/api/token";
 
