@@ -1,5 +1,3 @@
-let token = ""
-
 //typeof window !== "undefined"? (() => { 
   function generate_random_string(): string {
     let possible_values: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -77,7 +75,7 @@ let token = ""
   const redirect_url: string = "http://localhost:8000";
   const auth_base_url: string = "https://accounts.spotify.com/authorize";
   const token_base_url: string = "https://accounts.spotify.com/api/token";
-  
+
   //token = get_token()
 //})(): "";
 //export default token
