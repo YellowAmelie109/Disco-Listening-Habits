@@ -1,4 +1,4 @@
-ify//typeof window !== "undefined"? (() => { 
+//typeof window !== "undefined"? (() => { 
   function generate_random_string(): string {
     let possible_values: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let random_numbers: Uint8Array = crypto.getRandomValues(new Uint8Array(128));
