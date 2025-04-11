@@ -49,8 +49,7 @@ async function getJsonData(authKey: string|null) {//from app.js gets the json fr
 export async function main(/**authKey: string|null*/){
     let songInfo = await handleResponse(await getJsonData(window.localStorage.getItem('token')));
 
-    /**let songs: string[][] = []
-
+    let songs: string[][] = [] //gets the list of songs
     for (const key in await songInfo["songs"]) {
         if (Object.prototype.hasOwnProperty.call(songInfo["songs"], key)) {
             const element = [songInfo["songs"][key], songInfo["artists"][key]];
@@ -58,31 +57,35 @@ export async function main(/**authKey: string|null*/){
         };
     };
 
-    songInfo["songs"]  = await getSonginfo(songs)*/
+    songInfo["songs"]  = await getSonginfo(songs)
 
-    return songInfo
+    return songInfo //"songs" is a stored as a list of lists where the secondarry list would be in the form: [song name, artists[]?, tags[]]
 };
 
-async function getSonginfo(songs: any[]) {
+async function getSonginfo(songs: any[]) {//pings audioscrobbler to find the song genr5a (if listed)
     var songData: string[][] = []
     
     for (const key in songs) {
         if (Object.prototype.hasOwnProperty.call(songs, key)) {
-        const song = songs[key];
-    
-        const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], "&track=", song[1],"&api_key=", "64773b9be5304689ec27ead878787c92", "&format=json"), {
-        method: 'GET',
-        });
+            const song = songs[key];
         
-        let currentData = await response.json()
+            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], 
+                "&track=", song[1],
+                "&api_key=", "64773b9be5304689ec27ead878787c92",
+                "&format=json"), {
+                method: 'GET',
+            });
+            
+            let currentData = await response.json()
 
-        songData.push([await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["@attr"]["artits"], await currentData["toptags"]["tags"]])
+            songData.push([await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["@attr"]["artits"], await currentData["toptags"]["tags"]])
        }
     }
+    return await songData;
 }
-//const token = window.localStorage.getItem('token');
-//console.log(main(token));
-//const responseJSON = main();
-//export default responseJSON;
+/**const token = window.localStorage.getItem('token');
+console.log(main(token));
+const responseJSON = main();
+export default responseJSON;
 
-//export default getSonginfo([["radiohead", "paranoid+android"]])
+export default getSonginfo([["radiohead", "paranoid+android"]])*/
