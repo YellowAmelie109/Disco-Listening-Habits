@@ -57,7 +57,7 @@ export async function main(/**authKey: string|null*/){
         };
     };
 
-    songInfo["songs"]  = await getSonginfo(songs)
+    //songInfo["songs"]  = await getSonginfo(songs)
 
     return songInfo //"songs" is a stored as a list of lists where the secondarry list would be in the form: [song name, artists[]?, tags[]]
 };
