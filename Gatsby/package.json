@@ -19,16 +19,22 @@
     "chart.js": "^4.4.8",
     "crypto-js": "^4.2.0",
     "gatsby": "^5.14.1",
+    "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-netlify-cms": "^7.12.1",
+    "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-source-filesystem": "^5.14.0",
+    "gatsby-transformer-sharp": "^5.14.0",
     "netlify-cms-app": "^2.15.72",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.3.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.34.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "typescript": "^5.3.3"
-  }
+  },
+  "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
 }
