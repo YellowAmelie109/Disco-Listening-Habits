@@ -78,7 +78,7 @@ async function getSonginfo(songs: any[]) {//pings audioscrobbler to find the son
             
             let currentData = await response.json()
 
-            songData.push([await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["@attr"]["artits"], await currentData["toptags"]["tags"]])
+            songData.push([await currentData["toptags"]["@attr"]["artist"], await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["tags"]])
        }
     }
     return await songData;
