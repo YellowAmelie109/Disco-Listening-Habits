@@ -69,16 +69,15 @@ async function getSonginfo(songs: any[]) {//pings audioscrobbler to find the son
         if (Object.prototype.hasOwnProperty.call(songs, key)) {
             const song = songs[key];
         
-            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[0], 
-                "&track=", song[1],
+            const response = await fetch("https://ws.audioscrobbler.com/2.0/?method=track.gettoptags&artist=".concat(song[1], 
+                "&track=", song[0],
                 "&api_key=", "64773b9be5304689ec27ead878787c92",
                 "&format=json"), {
                 method: 'GET',
             });
             
             let currentData = await response.json()
-
-            songData.push([await currentData["toptags"]["@attr"]["artist"], await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["tags"]])
+            songData.push([await currentData["toptags"]["@attr"]["artist"], await currentData["toptags"]["@attr"]["track"], await currentData["toptags"]["tag"][0]["name"]])
        }
     }
     return await songData;
