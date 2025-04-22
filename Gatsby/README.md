@@ -1,16 +1,6 @@
-## Generating Authorisation Key:
-
-From a console shell:
-
-    $ cd /path/to/dicso-listening-habits
-    $ npm install --prefix ./Authorisation
-    $ npm start --prefix ./Authorisation
-
-Then, open `http://localhost:8080` in a browser.
-
-If you end up logged in as a null user logout and in again fully
-
 ## Website
 <a href="https://disco-listening-habits.netlify.app/"> Website link </a>
 
-The website can be edited within the Gatsby folder. Index.tsx is the main file that controls the website.
+This website is built on the Gatsby framework using the typescript React library.
+Each section of the page has its own file in `src/components`.
+The main layout for the page is defined in `src/pages/index.tsx`, where each section is called in order and separated appropiately.
