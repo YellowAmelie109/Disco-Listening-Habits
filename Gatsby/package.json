@@ -20,6 +20,7 @@
     "crypto-js": "^4.2.0",
     "gatsby": "^5.14.1",
     "gatsby-plugin-image": "^3.14.0",
+    "gatsby-plugin-manifest": "^5.14.0",
     "gatsby-plugin-netlify-cms": "^7.12.1",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-source-filesystem": "^5.14.0",
