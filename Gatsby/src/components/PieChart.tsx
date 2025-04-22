@@ -140,6 +140,8 @@ const PieChart = () => {  //width controls both width and height of the pie char
         </div>
       </>
     );
+  } else{
+    return (<p>Loading...</p>)
   };
 };
 
