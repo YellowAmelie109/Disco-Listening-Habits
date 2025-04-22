@@ -20,6 +20,9 @@ importers:
       gatsby-plugin-image:
         specifier: ^3.14.0
         version: 3.14.0(@babel/core@7.26.10)(gatsby-plugin-sharp@5.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(graphql@15.10.1))(gatsby-source-filesystem@5.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2)))(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(graphql@15.10.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      gatsby-plugin-manifest:
+        specifier: ^5.14.0
+        version: 5.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(graphql@15.10.1)
       gatsby-plugin-netlify-cms:
         specifier: ^7.12.1
         version: 7.12.1(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(netlify-cms-app@2.15.72(@types/hoist-non-react-statics@3.3.6)(@types/node@20.17.27)(@types/react@18.3.20)(graphql@15.10.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.98.0)
@@ -3447,6 +3450,12 @@ packages:
         optional: true
       gatsby-source-filesystem:
         optional: true
+
+  gatsby-plugin-manifest@5.14.0:
+    resolution: {integrity: sha512-ZJS+sCg8KIlXTEilInBt+kkPbGPOXX3wuRlOJiHwcou+uCmU/VZ4gif1DVazCseAbWtAdQxb3GkMlKTsGqtYiQ==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      gatsby: ^5.0.0-next
 
   gatsby-plugin-netlify-cms@7.12.1:
     resolution: {integrity: sha512-212zvouWh5RxwvQQyEb0VM45zS6DeUWohMNHYXy3WONnA94TK2TSViwIfhzF/g9ZzyDcJcMLjELrGiV1SK3HyA==}
@@ -11570,6 +11579,18 @@ snapshots:
       - bare-buffer
       - graphql
       - supports-color
+
+  gatsby-plugin-manifest@5.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(graphql@15.10.1):
+    dependencies:
+      '@babel/runtime': 7.27.0
+      gatsby: 5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2)
+      gatsby-core-utils: 4.14.0
+      gatsby-plugin-utils: 4.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(graphql@15.10.1)
+      semver: 7.7.1
+      sharp: 0.32.6
+    transitivePeerDependencies:
+      - bare-buffer
+      - graphql
 
   gatsby-plugin-netlify-cms@7.12.1(gatsby@5.14.1(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.8.2))(netlify-cms-app@2.15.72(@types/hoist-non-react-statics@3.3.6)(@types/node@20.17.27)(@types/react@18.3.20)(graphql@15.10.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.98.0):
     dependencies:
