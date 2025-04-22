@@ -1,6 +1,5 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import {main} from "../components/reading"
 import { Link } from "gatsby"
 import PieChart from "../components/PieChart"
 import {get_token} from "../components/authorization"
@@ -109,16 +108,6 @@ const links = [
 ]
 
 const IndexPage: React.FC<PageProps> = () => {
-  async function handleJSON(){
-    let songData = await main();
-    setSongs(songData["songs"])
-  }
-  const [songs,setSongs] = React.useState([""])
-  React.useEffect(() => {
-    if (localStorage.getItem('token')){
-      handleJSON();
-    };
-  }, []);
   typeof window !== "undefined"? (() => { 
     let url_parameters = new URLSearchParams(window.location.search);
     let code = url_parameters.get("code")
@@ -143,11 +132,6 @@ const IndexPage: React.FC<PageProps> = () => {
         update in real-time.
       </p>
       <PieChart />
-      <ol>
-        {songs.map((song:string,index:number) => (
-          <li key={index}>{song}</li>
-        ))}
-      </ol>
       <ul style={doclistStyles}>
         {docLinks.map(doc => (
           <li key={doc.url} style={docLinkStyle}>
