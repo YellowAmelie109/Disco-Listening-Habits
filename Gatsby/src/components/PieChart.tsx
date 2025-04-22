@@ -47,12 +47,14 @@ const PieChart = () => {  //width controls both width and height of the pie char
 
   async function handleJSON(){
     let songData = await main();
-    setSongs(songData["songs"])
+    setSongs(songData["songs"]);
   }
 
   const [songs,setSongs] = React.useState([""])
+  const [logState, setLogState] = React.useState(false)
   React.useEffect(() => {
     if (localStorage.getItem('token')){
+      setLogState(true)
       handleJSON();
     };
   }, []);
@@ -140,7 +142,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
         </div>
       </>
     );
-  } else{
+  } else if(logState){
     return (<p>Loading...</p>)
   };
 };
