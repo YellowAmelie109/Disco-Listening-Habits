@@ -106,7 +106,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
   if (JSON.stringify(songs) != "[\"\"]" ){
     return (
       <>
-        <div style={{ width: '45%', float:'right' }}>
+        <div style={{ width: '45%', float:'right', paddingBottom: "1em"}}>
           <Pie data={{labels: Object.keys(genreCount),
                       datasets: [
                         {
