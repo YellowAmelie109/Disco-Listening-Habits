@@ -85,7 +85,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
       Object.entries(count).sort(([, a], [, b]) => b - a)
     );
     let length = Object.keys(count).length;
-    if (length > 6) {
+    if (length > 11) {
       let other = 0;
       if (count["Unknown"]){
         other=count["Unknown"];
