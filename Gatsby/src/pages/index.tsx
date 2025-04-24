@@ -1,45 +1,26 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { Link } from "gatsby"
 import PieChart from "../components/PieChart"
 import {get_token} from "../components/authorization"
 import Header from "../components/header"
 
 const pageStyles = {
   color: "#111400",
-  padding: 96,
+  paddingTop: 96,
+  paddingBottom: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 500,
+  marginLeft: 96,
 }
 const headingAccentStyles = {
   color: "#E1FF00",
 }
 const paragraphStyles = {
   marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const doclistStyles = {
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
 }
 
 const linkStyle = {
@@ -65,47 +46,12 @@ const descriptionStyle = {
   lineHeight: 1.25,
 }
 
-const docLinks = [
-  {
-    text: "TypeScript Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
-  },
-  {
-    text: "GraphQL Typegen Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
-  }
-]
-
 const logoStyle = {
   width: 87,
   height: 45,
+  margin:10,
+  backgroundColor:"White",
 }
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-]
 
 const IndexPage: React.FC<PageProps> = () => {
   typeof window !== "undefined"? (() => { 
@@ -128,11 +74,29 @@ const IndexPage: React.FC<PageProps> = () => {
         <span style={headingAccentStyles}>Music</span>
       </h1>
       <PieChart />
-      <img
-        alt="EMS logo"
-        src="https://exetermathematicsschool.ac.uk/images/exeter-maths-school.png"
-        style={logoStyle}
-      />
+      <div style = {{backgroundColor: "Black"}}>
+        <a href="https://exetermathematicsschool.ac.uk">
+          <img
+            alt="EMS logo"
+            src="https://exetermathematicsschool.ac.uk/images/exeter-maths-school.png"
+            style={logoStyle}
+          />
+        </a>
+        <a href="https://last.fm/home">
+          <img
+            alt="Powered by AudioScrobbler"
+            src="https://www.last.fm/static/images/footer_logo@2x.49ca51948b0a.png"
+            style={{padding:10,height:40}}
+          />
+        </a>
+        <a href="https://open.spotify.com">
+          <img
+            alt="Spotify logo"
+            src="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"
+            style={{height:45, padding:10}}
+          />
+        </a>
+      </div>
     </main>
   )
 }
