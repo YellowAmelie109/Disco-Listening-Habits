@@ -93,8 +93,8 @@ const PieChart = () => {  //width controls both width and height of the pie char
         length--;
       };
       let values = Object.values(count);
-      other += values.slice(5).reduce((partialSum, a) => partialSum + a, 0); //Adds together the total count for each genre not in the top 5 genres
-      for (let i = length; i > 4; i--){
+      other += values.slice(10).reduce((partialSum, a) => partialSum + a, 0); //Adds together the total count for each genre not in the top 5 genres
+      for (let i = length; i > 9; i--){
         delete count[Object.keys(count)[i]];
       };
       count["Other"]=other
