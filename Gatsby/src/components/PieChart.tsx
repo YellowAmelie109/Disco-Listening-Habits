@@ -11,43 +11,12 @@ import {main} from './reading'
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-
-export const data = {
-  labels: ['Pop', 'Hip-hop', 'Rock', 'idk', 'Rap'],
-  datasets: [
-    {
-      label: 'Songs',
-      data: [25, 20, 8, 12, 34], 
-      backgroundColor: [
-        'rgba(237, 27, 36, 0.2)',
-        'rgba(255, 128, 39, 0.2)',
-        'rgba(254, 241, 2, 0.2)',
-        'rgba(36, 176, 77, 0.2)',
-        'rgba(22, 23, 255, 0.2)',
-        'rgba(140, 61, 140, 0.2)',
-        'rgba(255, 255, 255, 0.2)',
-        'rgba(254, 174, 201, 0.2)',
-        'rgba(129, 253, 253, 0.2)',
-        'rgba(123, 77, 51, 0.2)',
-        'rgba(0, 0, 0, 0.2)',
-      ],
-      borderColor: [
-        'rgba(237, 27, 36, 1)',
-        'rgba(255, 128, 39, 1)',
-        'rgba(254, 241, 2, 1)',
-        'rgba(36, 176, 77, 1)',
-        'rgba(22, 23, 255, 1)',
-        'rgba(140, 61, 140, 1)',
-        'rgba(200, 200, 200, 1)',
-        'rgba(254, 174, 201, 1)',
-        'rgba(129, 253, 253, 1)',
-        'rgba(123, 77, 51, 1)',
-        'rgba(0, 0, 0, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+const pieStyle = {
+  width: '45%', 
+  float:'right', 
+  paddingBottom: 1,
+  minWidth: "7.5cm"
+}
 
 const PieChart = () => {  //width controls both width and height of the pie chart
   function toTitleCase(str:string="") {
@@ -106,7 +75,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
   if (JSON.stringify(songs) != "[\"\"]" ){
     return (
       <>
-        <div style={{ width: '45%', float:'right', paddingBottom: "1em"}}>
+        <div style={pieStyle}>
           <Pie data={{labels: Object.keys(genreCount),
                       datasets: [
                         {
