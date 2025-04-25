@@ -7,8 +7,9 @@ import Header from "../components/header"
 const pageStyles = {
   color: "#111400",
   paddingTop: 96,
-  paddingBottom: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  height:"100%",
+  minHeight:"100%"
 }
 const headingStyles = {
   marginTop: 0,
@@ -53,6 +54,14 @@ const logoStyle = {
   backgroundColor:"White",
 }
 
+const footerStyle = {
+  backgroundColor: "Black", 
+  width:"100%",
+  minWidth: "100%",
+  zIndex: 100,
+  borderRadius: "0.75em",
+}
+
 const IndexPage: React.FC<PageProps> = () => {
   typeof window !== "undefined"? (() => { 
     let url_parameters = new URLSearchParams(window.location.search);
@@ -74,7 +83,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <span style={headingAccentStyles}>Music</span>
       </h1>
       <PieChart />
-      <div style = {{backgroundColor: "Black"}}>
+      <footer style = {footerStyle}>
         <a href="https://exetermathematicsschool.ac.uk">
           <img
             alt="EMS logo"
@@ -86,17 +95,17 @@ const IndexPage: React.FC<PageProps> = () => {
           <img
             alt="Powered by AudioScrobbler"
             src="https://www.last.fm/static/images/footer_logo@2x.49ca51948b0a.png"
-            style={{padding:10,height:40}}
+            style={{margin:10,height:40}}
           />
         </a>
         <a href="https://open.spotify.com">
           <img
             alt="Spotify logo"
             src="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"
-            style={{height:45, padding:10}}
+            style={{height:45, margin:10}}
           />
         </a>
-      </div>
+      </footer>
     </main>
   )
 }
