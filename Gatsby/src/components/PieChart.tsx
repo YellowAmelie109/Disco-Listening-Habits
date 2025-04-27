@@ -77,7 +77,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
     return (
       <>
         <div style={pieStyle}>
-          <h2 style = {{paddingLeft:8,textAlign:"center"}}>Top genres:</h2>
+          <h2 style = {{paddingLeft:8,textAlign:"center"}}>Top Genres:</h2>
 
           <Pie data={{labels: Object.keys(genreCount),
                       datasets: [
@@ -124,7 +124,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
                      />
         </div>
         <div>
-          <h2 style = {{paddingLeft:8}}>Top songs:</h2>
+          <h2 style = {{paddingLeft:8}}>Top Songs:</h2>
           <ol style = {{width:"50%",borderRightStyle: "solid", borderWidth: 2.5,borderColor:"#E1FF00"}}>
             {songs.map((song:string,index:number) => (
               <li key={index}>{song[0]} - {song[1]} - {toTitleCase(song[2])}</li>
