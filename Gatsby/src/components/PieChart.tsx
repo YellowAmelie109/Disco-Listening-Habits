@@ -14,8 +14,9 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 const pieStyle = {
   width: '45%', 
   float:'right', 
-  paddingBottom: 1,
-  minWidth: "7.5cm"
+  paddingBottom: 25,
+  paddingLeft:30,
+  minWidth: "7.5cm",
 }
 
 const PieChart = () => {  //width controls both width and height of the pie chart
@@ -76,6 +77,8 @@ const PieChart = () => {  //width controls both width and height of the pie char
     return (
       <>
         <div style={pieStyle}>
+          <h2 style = {{paddingLeft:8,textAlign:"center"}}>Top genres:</h2>
+
           <Pie data={{labels: Object.keys(genreCount),
                       datasets: [
                         {
@@ -115,17 +118,14 @@ const PieChart = () => {  //width controls both width and height of the pie char
                       plugins: {
                         legend: {
                           position: 'top',
-                        },
-                        title: {
-                          display: true,
-                          text: 'Genres'
                         }
                       }
                     }}
                      />
         </div>
         <div>
-          <ol style = {{maxWidth:"50%"}}>
+          <h2 style = {{paddingLeft:8}}>Top songs:</h2>
+          <ol style = {{width:"50%",borderRightStyle: "solid", borderWidth: 2.5,borderColor:"#E1FF00"}}>
             {songs.map((song:string,index:number) => (
               <li key={index}>{song[0]} - {song[1]} - {toTitleCase(song[2])}</li>
             ))}
@@ -134,7 +134,9 @@ const PieChart = () => {  //width controls both width and height of the pie char
       </>
     );
   } else if(logState){
-    return (<p>Loading...</p>)
+    return (<p style = {{textAlign:'center', paddingBottom:25}}>Loading...</p>)
+  }else{
+    return(<div style={{height:15}}></div>)
   };
 };
 

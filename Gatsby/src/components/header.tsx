@@ -5,8 +5,7 @@ const headerStyle = {
     listStyleType: "none",
     marginTop: "3em",
     marginLeft: "5%",
-    padding: 0,
-    paddingBottom: 0,
+    padding: 4,
     backgroundColor: "#111400",
     position: "fixed",
     top: 0,
@@ -83,8 +82,10 @@ const Header = () => {
     return(
     <div>
         <ul style = {headerStyle}>
-                <li style = {{float:"left",marginLeft:"1em"}}>
-                    <img src={require("../images/DiscoLogo.png").default} style = {{height:"2.25em"}}/>
+                <li style = {{float:"left",marginLeft:1}}>
+                    <a href="https://itsdisco.com">
+                        <img src={require("../images/DiscoLogo.png").default} style = {{height:"2.25em"}}/>
+                    </a>
                 </li>
                 <li style = {{display:"inline-block",color:"#fcffd9", marginTop:"0.55em"}}>{userName}</li>
                 <li style = {{float:"right",marginRight:"1em"}}>
