@@ -25,7 +25,7 @@ const artistList = () => {
         handleJSON();
         };
     }, []);
-    if (artists.length > 0){
+    if (artists.length === 5){
         return(
             <div>
                 <h2 style = {{paddingLeft: 8}}>Top Artists:</h2>
@@ -39,6 +39,14 @@ const artistList = () => {
                 <p style = {textStyle}>{artists[2]["name"]}</p>
                 <p style = {textStyle}>{artists[3]["name"]}</p>
                 <p style = {textStyle}>{artists[4]["name"]}</p>
+            </div>
+        )
+    }else if (artists.length === 1){
+        return(
+            <div>
+                <h2 style = {{paddingLeft:8}}>Top Artists:</h2>
+                <img src={artists[0]["images"][0]["url"]} style = {imageStyle} alt = {artists[0]["name"]}></img>
+                <p style = {{width:"20%",overflow:"auto",textAlign:"center"}}>{artists[0]["name"]}</p>
             </div>
         )
     }
