@@ -28,6 +28,7 @@ const artistList = () => {
     if (artists.length > 0){
         return(
             <div>
+                <h2 style = {{paddingLeft: 8}}>Top Artists:</h2>
                 <img src={artists[0]["images"][0]["url"]} style = {imageStyle} alt = {artists[0]["name"]}></img>
                 <img src={artists[1]["images"][0]["url"]} style = {imageStyle} alt = {artists[1]["name"]}></img>
                 <img src={artists[2]["images"][0]["url"]} style = {imageStyle} alt = {artists[2]["name"]}></img>
