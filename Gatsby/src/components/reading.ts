@@ -87,6 +87,21 @@ async function getSonginfo(songs: any[]) {//pings audioscrobbler to find the son
     }
     return await songData;
 }
+
+export async function getArtistInfo(){
+    let authKey = window.localStorage.getItem('token')
+    const response = await fetch("https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=50&offset=0", {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + authKey},
+    });
+
+    let jsonData = await response.json()
+    if (Object.keys(jsonData["items"]).length > 5){
+        return await jsonData["items"].slice(0,5)
+    }
+    return await jsonData["items"]
+
+}
 /**const token = window.localStorage.getItem('token');
 console.log(main(token));
 const responseJSON = main();

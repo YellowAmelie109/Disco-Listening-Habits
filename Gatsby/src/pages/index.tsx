@@ -3,22 +3,22 @@ import type { HeadFC, PageProps } from "gatsby"
 import PieChart from "../components/PieChart"
 import {get_token} from "../components/authorization"
 import Header from "../components/header"
+import ArtistList from "../components/artists"
 
 const pageStyles = {
   color: "#111400",
-  paddingTop: 96,
+  paddingTop: 100,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
   height:"100%",
   minHeight:"100%"
 }
 const headingStyles = {
   marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 500,
-  marginLeft: 96,
+  marginLeft: "2.5%",
+  marginBottom: 0,
 }
 const headingAccentStyles = {
-  color: "#E1FF00",
+  color: "#C1DF00",
 }
 const paragraphStyles = {
   marginBottom: 48,
@@ -80,9 +80,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <h1 style={headingStyles}>
         Disco Listening Habits
         <br />
-        <span style={headingAccentStyles}>Music</span>
+        <span style={headingAccentStyles}>Your Spotify listening habits, visualised</span>
       </h1>
       <PieChart />
+      <div style = {{clear : 'both'}}></div>
+      <ArtistList />
       <footer style = {footerStyle}>
         <a href="https://exetermathematicsschool.ac.uk">
           <img
