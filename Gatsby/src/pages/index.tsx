@@ -55,7 +55,7 @@ const logoStyle = {
 }
 
 const footerStyle = {
-  backgroundColor: "Black", 
+  backgroundColor: "#111400", 
   width:"100%",
   minWidth: "100%",
   zIndex: 100,

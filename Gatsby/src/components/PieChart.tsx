@@ -136,7 +136,12 @@ const PieChart = () => {  //width controls both width and height of the pie char
   } else if(logState){
     return (<p style = {{textAlign:'center', paddingBottom:25}}>Loading...</p>)
   }else{
-    return(<div style={{height:15}}></div>)
+    return(
+      <div>
+        <h2 style = {{marginTop:30}}>Logged in example:</h2>
+        <img src={require("../images/WebsiteExample.png").default} style = {{marginLeft:"25%",width:"50%"}}></img>
+      </div>
+    )
   };
 };
 
