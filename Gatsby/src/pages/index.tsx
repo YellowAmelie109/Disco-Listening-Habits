@@ -107,6 +107,7 @@ const IndexPage: React.FC<PageProps> = () => {
             style={{height:45, margin:10}}
           />
         </a>
+        <p style={{float:"right",color:"#fcffd9",margin:20}}>By Caiden Cree, Amelie Machin, Joe Moseley, Ben Wotton</p>
       </footer>
     </main>
   )
