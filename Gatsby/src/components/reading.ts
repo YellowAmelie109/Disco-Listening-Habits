@@ -43,14 +43,21 @@ async function getJsonData(authKey: string|null) {//from app.js gets the json fr
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + authKey},
     });
-
-    let jsonData = await response.json()
-
+    let jsonData
+    if (response["status"]===200){
+        jsonData = await response.json()
+    }else{
+        jsonData = {"error":response["status"]}
+    }
     return await jsonData
 };
 
 export async function main(/**authKey: string|null*/){
-    let songInfo = await handleResponse(await getJsonData(window.localStorage.getItem('token')));
+    let JSON = await getJsonData(window.localStorage.getItem('token'));
+    if (JSON["error"]){
+        return JSON
+    }
+    let songInfo = await handleResponse(await JSON);
     let songs = [] //gets the list of songs
     for (const key in await songInfo["songs"]) {
         if (Object.prototype.hasOwnProperty.call(songInfo["songs"], key)) {
@@ -99,9 +106,3 @@ export async function getArtistInfo(){
     return await jsonData["items"]
 
 }
-/**const token = window.localStorage.getItem('token');
-console.log(main(token));
-const responseJSON = main();
-export default responseJSON;
-
-export default getSonginfo([["radiohead", "paranoid+android"]])*/

@@ -29,7 +29,11 @@ const PieChart = () => {  //width controls both width and height of the pie char
 
   async function handleJSON(){
     let songData = await main();
-    setSongs(songData["songs"]);
+    if (songData["error"]){
+      setSongs(await songData["error"]);
+    }else{
+      setSongs(songData["songs"]);
+    }
   }
 
   const [songs,setSongs] = React.useState([""])
@@ -71,77 +75,85 @@ const PieChart = () => {  //width controls both width and height of the pie char
     }
     return (count);
   };
+  if (songs === 403){
+    return(<p style = {{textAlign:'center', paddingBottom:25}}>Error: 403 <br></br>
+    This Spotify account is not authorised. Please try a different Spotify account or add the account to the Spotify API dashboard.</p>)
+  }else if(typeof songs!= "object"){
+    return(<p style = {{textAlign:'center', paddingBottom:25}}>Error: {songs}</p>)
+  }
+  else{
+  
+    let genreCount=countGenres(songs);
+    if (JSON.stringify(songs) != "[\"\"]" ){
+      return (
+        <>
+          <div style={pieStyle}>
+            <h2 style = {{paddingLeft:8,textAlign:"center"}}>Top Genres:</h2>
 
-  let genreCount=countGenres(songs);
-  if (JSON.stringify(songs) != "[\"\"]" ){
-    return (
-      <>
-        <div style={pieStyle}>
-          <h2 style = {{paddingLeft:8,textAlign:"center"}}>Top Genres:</h2>
-
-          <Pie data={{labels: Object.keys(genreCount),
-                      datasets: [
-                        {
-                          label: 'Songs',
-                          data: Object.values(genreCount), 
-                          backgroundColor: [
-                            'rgba(237, 27, 36, 0.2)',
-                            'rgba(255, 128, 39, 0.2)',
-                            'rgba(254, 241, 2, 0.2)',
-                            'rgba(36, 176, 77, 0.2)',
-                            'rgba(22, 23, 255, 0.2)',
-                            'rgba(140, 61, 140, 0.2)',
-                            'rgba(255, 255, 255, 0.2)',
-                            'rgba(254, 174, 201, 0.2)',
-                            'rgba(129, 253, 253, 0.2)',
-                            'rgba(123, 77, 51, 0.2)',
-                            'rgba(0, 0, 0, 0.2)',
-                          ],
-                          borderColor: [
-                            'rgba(237, 27, 36, 1)',
-                            'rgba(255, 128, 39, 1)',
-                            'rgba(254, 241, 2, 1)',
-                            'rgba(36, 176, 77, 1)',
-                            'rgba(22, 23, 255, 1)',
-                            'rgba(140, 61, 140, 1)',
-                            'rgba(200, 200, 200, 1)',
-                            'rgba(254, 174, 201, 1)',
-                            'rgba(129, 253, 253, 1)',
-                            'rgba(123, 77, 51, 1)',
-                            'rgba(0, 0, 0, 1)',
-                          ],
-                          borderWidth: 1,
-                        },
-                      ],
-                    }} options = {{
-                      responsive: true,
-                      plugins: {
-                        legend: {
-                          position: 'top',
+            <Pie data={{labels: Object.keys(genreCount),
+                        datasets: [
+                          {
+                            label: 'Songs',
+                            data: Object.values(genreCount), 
+                            backgroundColor: [
+                              'rgba(237, 27, 36, 0.2)',
+                              'rgba(255, 128, 39, 0.2)',
+                              'rgba(254, 241, 2, 0.2)',
+                              'rgba(36, 176, 77, 0.2)',
+                              'rgba(22, 23, 255, 0.2)',
+                              'rgba(140, 61, 140, 0.2)',
+                              'rgba(255, 255, 255, 0.2)',
+                              'rgba(254, 174, 201, 0.2)',
+                              'rgba(129, 253, 253, 0.2)',
+                              'rgba(123, 77, 51, 0.2)',
+                              'rgba(0, 0, 0, 0.2)',
+                            ],
+                            borderColor: [
+                              'rgba(237, 27, 36, 1)',
+                              'rgba(255, 128, 39, 1)',
+                              'rgba(254, 241, 2, 1)',
+                              'rgba(36, 176, 77, 1)',
+                              'rgba(22, 23, 255, 1)',
+                              'rgba(140, 61, 140, 1)',
+                              'rgba(200, 200, 200, 1)',
+                              'rgba(254, 174, 201, 1)',
+                              'rgba(129, 253, 253, 1)',
+                              'rgba(123, 77, 51, 1)',
+                              'rgba(0, 0, 0, 1)',
+                            ],
+                            borderWidth: 1,
+                          },
+                        ],
+                      }} options = {{
+                        responsive: true,
+                        plugins: {
+                          legend: {
+                            position: 'top',
+                          }
                         }
-                      }
-                    }}
-                     />
-        </div>
+                      }}
+                      />
+          </div>
+          <div>
+            <h2 style = {{paddingLeft:8}}>Top Songs:</h2>
+            <ol style = {{width:"50%",borderRightStyle: "solid", borderWidth: 2.5,borderColor:"#E1FF00"}}>
+              {songs.map((song:string,index:number) => (
+                <li key={index}>{song[0]} - {song[1]} - {toTitleCase(song[2])}</li>
+              ))}
+            </ol>
+          </div>
+        </>
+      );
+    } else if(logState){
+      return (<p style = {{textAlign:'center', paddingBottom:25}}>Loading...</p>)
+    }else{
+      return(
         <div>
-          <h2 style = {{paddingLeft:8}}>Top Songs:</h2>
-          <ol style = {{width:"50%",borderRightStyle: "solid", borderWidth: 2.5,borderColor:"#E1FF00"}}>
-            {songs.map((song:string,index:number) => (
-              <li key={index}>{song[0]} - {song[1]} - {toTitleCase(song[2])}</li>
-            ))}
-          </ol>
+          <h2 style = {{marginTop:30}}>Logged in example:</h2>
+          <img src={require("../images/WebsiteExample.png").default} style = {{marginLeft:"25%",width:"50%"}}></img>
         </div>
-      </>
-    );
-  } else if(logState){
-    return (<p style = {{textAlign:'center', paddingBottom:25}}>Loading...</p>)
-  }else{
-    return(
-      <div>
-        <h2 style = {{marginTop:30}}>Logged in example:</h2>
-        <img src={require("../images/WebsiteExample.png").default} style = {{marginLeft:"25%",width:"50%"}}></img>
-      </div>
-    )
+      )
+    };
   };
 };
 
