@@ -16,7 +16,10 @@ const textStyle = {
 
 const artistList = () => {
     async function handleJSON(){
-        setArtists(await getArtistInfo());
+        let artistJSON=await getArtistInfo();
+        if (!artistJSON["error"]){
+            setArtists(await getArtistInfo());
+        }
     }
 
     const [artists, setArtists] = React.useState([]);
