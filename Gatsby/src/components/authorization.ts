@@ -21,7 +21,6 @@
   export async function get_code() {
     //requesting the code
     let code_verifier: string = generate_random_string();
-    console.log(code_verifier);
 
     window.localStorage.setItem('code_verifier',code_verifier);
     let hashed = await generate_hash(code_verifier);
