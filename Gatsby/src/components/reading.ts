@@ -103,6 +103,9 @@ export async function getArtistInfo(){
     });
 
     let jsonData = await response.json();
+    if (jsonData["error"]){
+        return jsonData
+    }
     return await jsonData["items"]
 
 }

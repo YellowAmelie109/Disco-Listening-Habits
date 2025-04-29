@@ -79,7 +79,8 @@ const PieChart = () => {  //width controls both width and height of the pie char
     return(<p style = {{textAlign:'center', paddingBottom:25}}>Error: 403 <br></br>
     This Spotify account is not authorised. Please try a different Spotify account or add the account to the Spotify API dashboard.</p>)
   }else if(typeof songs!= "object"){
-    return(<p style = {{textAlign:'center', paddingBottom:25}}>Error: {songs}</p>)
+    return(<p style = {{textAlign:'center', paddingBottom:25}}>Error: {songs} <br></br>
+    Please try signing out and back in again.</p>)
   }
   else{
   
