@@ -151,7 +151,7 @@ const PieChart = () => {  //width controls both width and height of the pie char
       return(
         <div>
           <h2 style = {{marginTop:30}}>Logged in example:</h2>
-          <img src={require("../images/WebsiteExample.png").default} style = {{marginLeft:"25%",width:"50%"}}></img>
+          <img src={require("../images/WebsiteExample.png").default} style = {{marginLeft:"25%",width:"50%",minWidth:"300px"}}></img>
         </div>
       )
     };
