@@ -39,7 +39,7 @@ async function handleResponse(jsonObject : any){//looks at the json data and ret
 };
 
 async function getJsonData(authKey: string|null) {//from app.js gets the json from the spotify api
-    const response = await fetch("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=0", {
+    const response = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=50", {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + authKey},
     });
